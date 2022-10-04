@@ -1,0 +1,1 @@
+"C:\Program Files\Unity\Hub\Editor\2021.3.11f1\Editor\Unity.exe" -logFile "C:\Users\michael.bowen\Beta Technologies test\Build\log" -projectPath "C:\Users\michael.bowen\Beta Technologies test" -batchmode -skipMissingProjectID -skipMissingUPID -buildTarget webgl --quit 
