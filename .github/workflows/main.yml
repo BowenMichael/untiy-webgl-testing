@@ -5,7 +5,7 @@ on:
 
 env:
   UNITY_VER: 2021.3.10f1
-  ULF_FILE: Unity_v2021.x.ulf
+  ULF_FILE: Unity_v2021.3.10f1.ulf
 
 jobs:
   request_alf:
