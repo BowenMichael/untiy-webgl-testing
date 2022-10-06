@@ -3,10 +3,6 @@ name: License
 on:
   workflow_dispatch: {}
 
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
-
 env:
   UNITY_VER: 2022.3.11f1
   ULF_FILE: Unity_v2022.x.ulf
