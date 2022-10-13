@@ -1,6 +1,5 @@
 name: Build Game
-on:
-  workflow_dispatch: {}
+on: push
 jobs:
   build_project_WebGL:
     name: Build my project to WebGL ✨
