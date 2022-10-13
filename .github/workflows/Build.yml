@@ -1,9 +1,8 @@
 name: Build Game
-on:
-  workflow_dispatch: {}
+on: push
 jobs:
-  build_project:
-    name: Build my project ✨
+  build_project_WebGL:
+    name: Build my project to WebGL ✨
     runs-on: ubuntu-latest
     steps:
       # Checkout
@@ -16,8 +15,9 @@ jobs:
       - uses: actions/cache@v2
         with:
           path: Library
-          key: Library-${{ hashFiles('Assets/**', 'Packages/**', 'ProjectSettings/**') }}
+          key: Library-build-WebGL
           restore-keys: |
+            library-build
             Library-
 
       # Build
@@ -29,9 +29,28 @@ jobs:
           UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
         with:
           targetPlatform: WebGL
+          
 
       # Output
       - uses: actions/upload-artifact@v2
         with:
-          name: Build
+          name: build-WebGL
+          path: build/WebGL
+  deploy_pages:
+    needs: build_project_WebGL
+    name: Deploy WebGL to pages
+    runs-on: unbuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - uses: actions/download-artifact@v2
+        with:
+          name: build-WebGL
           path: build
+
+      - name: Deploy 🚀
+        uses: BowenMichael/github-pages-deploy-action@4.1.4
+        with:
+          branch: gh-pages
+          folder: build/WebGL
