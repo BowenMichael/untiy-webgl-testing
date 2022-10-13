@@ -4,8 +4,8 @@ on:
   workflow_dispatch: {}
 
 env:
-  UNITY_VER: 2021.3.10f1
-  ULF_FILE: Unity_v2021.3.10f1.ulf
+  UNITY_VER: 2021.3.11f1
+  ULF_FILE: Unity_v2021.3.11f1.ulf
 
 jobs:
   request_alf:
